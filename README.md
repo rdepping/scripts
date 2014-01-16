@@ -1,12 +1,16 @@
-# Matthew's Shell Scripts
+# Jim's Shell Scripts
 
-These are a series of utility scripts for Bash and ZShell from Matthew McCullough. Many are derived from prior works of open source, but some original URLs have been lost. Please point out any original art URLs and they will be added. I always strive to give credit to prior art authors.
+These are a series of utility scripts for Bash, based on originals from Matthew McCullough, with some additions of mine. 
+
+As Matthew said in his original:
+"Many are derived from prior works of open source, but some original URLs have been lost. Please point out any original art URLs and they will be added. I always strive to give credit to prior art authors."
 
 Please fork, fix, enhance, and send pull requests.
 
 
 # MIT License
 
+Copyright (c) 2014, Jim Lawton
 Copyright (c) 2010, Matthew McCullough, Ambient Ideas, LLC
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
