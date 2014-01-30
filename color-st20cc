@@ -1,0 +1,30 @@
+#!/usr/bin/perl
+use strict;
+use Term::ANSIColor qw(:constants);
+$|=1;
+
+$Term::ANSIColor::AUTORESET = 1;
+
+my $error_op = shift || '/^Error/';
+my $make_error = eval "sub { $error_op }";
+
+my $serious_op = shift || '/^Serious/';
+my $make_serious = eval "sub { $serious_op }";
+
+my $warn_op = shift || '/^Warning/';
+my $make_warn = eval "sub { $warn_op }";
+
+while (<>) {
+    chomp;
+    if (&$make_error) {
+        print BOLD RED "$_";
+    } elsif (&$make_serious) {
+        print MAGENTA "$_";
+    } elsif (&$make_warn) {
+        print BLUE "$_";
+    } else {
+        print "$_";
+    }
+    print "\n";
+}
+__END__
