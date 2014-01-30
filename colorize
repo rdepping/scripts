@@ -1,0 +1,35 @@
+#!/usr/bin/perl
+use strict;
+use Term::ANSIColor qw(:constants);
+$|=1;
+
+$Term::ANSIColor::AUTORESET = 1;
+
+my $red_op = shift || '/ERR|FAIL|assert/';
+my $makered = eval "sub { $red_op }";
+
+my $orange_op = shift || '/WARN/';
+my $makeorange = eval "sub { $orange_op }";
+
+my $blue_op = shift || '/entered|returned/';
+my $makeblue = eval "sub { $blue_op }";
+
+my $green_op = shift || '/^[a-zA-Z0-9]/';
+my $makegreen = eval "sub { $green_op }";
+
+while (<>) {
+    chomp;
+    if (&$makered) {
+        print BOLD RED $_;
+    } elsif (&$makeblue) {
+        print BLUE $_;
+    } elsif (&$makeorange) {
+        print ORANGE $_;
+    } elsif (&$makegreen) {
+        print GREEN $_;
+    } else {
+        print $_;
+    }
+    print "\n";
+}
+__END__
