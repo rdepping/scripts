@@ -1,0 +1,2 @@
+#!/bin/sh
+awk 'BEGIN {start='$1'; len='$2'; end=start+len} NR>=start && NR<=end {print}' $3

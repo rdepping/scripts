@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# nroffs all files in a directory 
+#
+for i in `ls -l *.man | awk '{print $8}' | awk -F. '{print $1}'`
+do
+      nroff -man $i.man >$i.cat
+      echo "nroffed $i.man to $i.cat"
+done

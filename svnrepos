@@ -1,0 +1,24 @@
+#!/bin/sh
+REPOS=`svn info | grep '^URL' | awk '{print $2}'`
+if [ "$1" == "-p" ]; then
+    # Print the parent.
+    PARENT=`dirname $REPOS` 
+    echo $PARENT
+elif [ "$1" == "-r" ]; then
+    # Print the root (parent of trunk, tags or branches).
+    TRUNK=`echo $REPOS | grep 'trunk'`
+    BRANCHES=`echo $REPOS | grep 'branches'`
+    TAGS=`echo $REPOS | grep 'tags'`
+    if [ "$TRUNK" != "" ]; then
+        ROOT=`echo $REPOS | sed -e 's:trunk.*$::'`
+    elif [ "$BRANCHES" != "" ]; then
+        ROOT=`echo $REPOS | sed -e 's:branches.*$::'`
+    elif [ "$TAGS" != "" ]; then
+        ROOT=`echo $REPOS | sed -e 's:tags.*$::'`
+    else
+        ROOT=$REPOS
+    fi
+	echo $ROOT
+else
+	echo $REPOS
+fi

@@ -1,0 +1,16 @@
+#!/bin/sh
+#cat /dev/null > $HOME/tmp/xses-jiml
+sudo killall -q -9 /usr/local/bin/x11vnc
+#sudo killall -q -9 /usr/bin/x11vnc
+sudo killall -q -9 autocutsel
+#/usr/local/bin/x11vnc
+#/usr/bin/x11vnc
+#cat /dev/null > $HOME/tmp/xses-jiml
+#autocutsel &
+
+# Run x11vnc as a service
+sudo /usr/local/bin/x11vnc -rfbauth /root/.vnc/passwd -o /var/log/x11vnc.log -xkb -forever -bg
+#GDMAUTHFILE=`ps auxww | grep auth | grep root | sed 's/^.*-auth//' | awk '{print $1}'`
+#/usr/bin/x11vnc -auth $GDMAUTHFILE -display :0 -rfbauth /root/.vnc/passwd -o /var/log/x11vnc.log -xkb -forever -bg
+sudo xset -display :0 r on
+

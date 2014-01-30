@@ -1,0 +1,10 @@
+#!/bin/sh
+#
+# findproc -- find a process that contains the supplied string
+#
+if [ $# -eq 0 ]
+then
+	echo "usage: $0 <string>"
+	exit 1
+fi
+ps -aux | grep $1 | grep -v grep | grep -v $0 | more

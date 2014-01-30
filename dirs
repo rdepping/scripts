@@ -1,0 +1,7 @@
+for x in *
+do
+  if [ -d $x ]
+  then
+    ls -ld $x
+  fi
+done

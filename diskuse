@@ -1,0 +1,33 @@
+#!/bin/sh
+#
+# cheap & dirty script to produce sorted listings of
+# disk usage culprits
+# /jl 17-feb-92/
+#
+if [ $# -eq 0 ] 
+then
+	where="."
+else
+	where="$1"
+	if [ $# -eq 2 ]
+	then
+		if [ $2 -le 0 -o $2 -gt 16 ]
+		then
+			echo "Usage: diskuse [dir] [ndirs]"
+			exit
+		fi
+	fi
+	if [ $# -gt 2 ]
+	then
+		echo "Usage: diskuse [dir] [ndirs]"
+		exit 
+	fi
+fi
+echo "Disk usage for: `cd $where ; pwd`"
+if [ $# -eq 2 ]
+then
+	paths=`expr $2 + 1`
+	du $where | awk -F/ 'NF<='$paths' {print}' | sort -nr
+else
+	du $where | sort -nr 
+fi

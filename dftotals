@@ -1,0 +1,3 @@
+#!/bin/sh
+df | awk 'BEGIN {tot=0;used=0;free=0} {tot=tot+$2;used=used+$3;free=free+$4; print $0} END {print "Totals           ",tot,used,"",free}'
+

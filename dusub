@@ -1,0 +1,8 @@
+#!/bin/csh
+rm -f /tmp/dusub$$
+echo "getting sizes..."
+foreach x (`ls -l $1 | grep ^d | awk '{print $9}'`)
+ du -sk $x >>/tmp/dusub$$
+end 
+sort -nr /tmp/dusub$$
+rm -f /tmp/dusub$$

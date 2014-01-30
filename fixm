@@ -1,0 +1,13 @@
+#/bin/csh
+#
+# simple program to strip the ^M characters from text files transferred
+# from the PC.  
+#
+
+if (($1 == "") || ($2 =="")) then
+	echo "usage: fixm input-file output-file"
+
+else
+	cat $1 | tr -d '\015' > $2
+endif
+
