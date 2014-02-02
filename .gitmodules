@@ -1,3 +1,0 @@
-[submodule "apt-history"]
-	path = apt-history
-	url = https://github.com/blyork/apt-history.git
