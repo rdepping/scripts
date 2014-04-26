@@ -1,7 +1,5 @@
 #!/bin/sh
-for item in `find . -iname \"$1\"`; do
-    echo Backing up: "$item" to "$item.orig"
-    cp $item $item.orig
+for item in `find . -iname "$1"`; do
     echo Converting: "$item"
-	cat $item | sed -i 's/\t/    /g'
+	sed -iorig 's/\t/    /g' $item
 done
