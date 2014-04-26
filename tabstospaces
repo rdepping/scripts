@@ -1,8 +1,7 @@
 #!/bin/sh
-#for eachthing in "$1"; do
-for eachthing in `find . -iname \"$1\"`; do
-    echo Backing up: "$eachthing" to "$eachthing.orig"
-    cp $eachthing $eachthing.orig
-    echo Converting: tab2space --unix "$eachthing" "$eachthing"
-    tab2space --unix "$eachthing" "$eachthing"
+for item in `find . -iname \"$1\"`; do
+    echo Backing up: "$item" to "$item.orig"
+    cp $item $item.orig
+    echo Converting: "$item"
+	cat $item | sed -i 's/\t/    /g'
 done
