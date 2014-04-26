@@ -1,5 +1,5 @@
 #!/bin/sh
 for item in `find . -iname "$1"`; do
     echo Converting: "$item"
-	sed -iorig 's/\t/    /g' $item
+	sed -i.orig 's/\t/    /g' $item
 done
