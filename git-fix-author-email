@@ -30,12 +30,11 @@ old="jim.lawton@gmail.com"
 new="jim.lawton@s3group.com"
 
 args=""
-reverse=0
 if [ $all -eq 1 ]; then
     args="-- --all"
 else
     if [ ! -z "$1" ]; then
-        args="$1"
+        args="-- $1"
     fi
 fi
 
