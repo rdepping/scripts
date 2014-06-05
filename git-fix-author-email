@@ -7,10 +7,10 @@ all=0
 reverse=0
 force=0
 
-while getopts "h?ar" opt; do
+while getopts "h?arf" opt; do
     case "$opt" in
     h|\?)
-        show_help
+        echo "usage: git-fix-author-email [-f|-r|-a] [refspec]"
         exit 0
         ;;
     a)  all=1
