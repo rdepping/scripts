@@ -1,17 +1,40 @@
 #!/bin/bash
-# https://help.github.com/articles/changing-author-info
+# Based on https://help.github.com/articles/changing-author-info
+
+OPTIND=1
+
+all=0
+reverse=0
+force=0
+
+while getopts "h?ar" opt; do
+    case "$opt" in
+    h|\?)
+        show_help
+        exit 0
+        ;;
+    a)  all=1
+        ;;
+    r)  reverse=1
+        ;;
+    f)  force=1
+        ;;
+    esac
+done
+
+shift $((OPTIND-1))
+
+[ "$1" = "--" ] && shift
 
 old="jim.lawton@gmail.com"
 new="jim.lawton@s3group.com"
 
 args=""
 reverse=0
-if [ ! -z "$1" ]; then
-    if [ "$1" = "-a" ]; then
-        args="-- --all"
-    elif [ "$1" = "-r" ]; then
-        reverse=1
-    else
+if [ $all -eq 1 ]; then
+    args="-- --all"
+else
+    if [ ! -z "$1" ]; then
         args="$1"
     fi
 fi
@@ -22,7 +45,12 @@ if [ $reverse -eq 1 ]; then
     new=$temp
 fi
 
-git filter-branch -f --env-filter '
+gfbargs=""
+if [ $force -eq 1 ]; then
+    gfbargs="-f"
+fi
+
+git filter-branch $gfbargs --env-filter '
  
 an="$GIT_AUTHOR_NAME"
 am="$GIT_AUTHOR_EMAIL"
