@@ -1,4 +1,4 @@
-#!python3.4
+#!/usr/bin/env python3.4
 
 # http://pyright.blogspot.ie/2014/10/downloading-bunch-of-mp3s-off-internet.html
 
