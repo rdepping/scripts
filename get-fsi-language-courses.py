@@ -3,6 +3,7 @@
 # http://pyright.blogspot.ie/2014/10/downloading-bunch-of-mp3s-off-internet.html
 
 from urllib import request
+from urllib.parse import quote
 
 # For getting foreign language study mp3's.
 # Main part of URL for French.
@@ -79,12 +80,12 @@ for mp3x in mp3s:
         urlx = URLI.format(**mp3x)
     filenamex = FILENAME.format(**mp3x)
     print('Retrieving {0} . . .'.format(urlx))
-    request.urlretrieve(urlx, filenamex)
+    request.urlretrieve(quote(urlx, safe="/:"), filenamex)
 
 # Add pdf texts at end.
 for pdfx in pdfs:
     print('Retrieving {0} . . .'.format(pdfx))
-    request.urlretrieve(pdfs[pdfx], pdfx)
+    request.urlretrieve(quote(pdfs[pdfx], safe="/:"), pdfx)
 
 print('Everything appears to have downloaded.')
 print('Check the directory with the files to be sure.')
