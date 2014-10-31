@@ -1,47 +1,47 @@
 #!/bin/sh
 
-#guake &
+GUAKE=/usr/local/bin/guake
 
-#guake -s 0
-#sleep 1
-#guake -r "~"
-#sleep 1
+#${GUAKE} &
 
-cd
-
-guake -n git/cmf-tools
+${GUAKE} -s 0
 sleep 1
-#guake -r "cmf/tools"
-#sleep 1
-guake -e "git status"
+${GUAKE} -r "~"
 sleep 1
 
-guake -n git/manifests
+${GUAKE} -n git/cmf-tools
 sleep 1
-#guake -r "manifests"
-#sleep 1
-guake -e "git status"
+${GUAKE} -r "cmf/tools"
 sleep 1
-
-guake -n Work/comcast/repo
-sleep 1
-#guake -r "repo"
-#sleep 1
-guake -e "git status"
+${GUAKE} -e "git status"
 sleep 1
 
-guake -n ~
+${GUAKE} -n git/manifests
 sleep 1
-guake -r "saturn"
+${GUAKE} -r "manifests"
 sleep 1
-guake -e "ssh -AX saturn"
+${GUAKE} -e "git status"
 sleep 1
 
-guake -n ~
+${GUAKE} -n Work/comcast/repo
 sleep 1
-guake -r "emulator"
+${GUAKE} -r "repo"
 sleep 1
-guake -e "ssh -AX 192.168.249.81"
+${GUAKE} -e "git status"
+sleep 1
+
+${GUAKE} -n ~
+sleep 1
+${GUAKE} -r "saturn"
+sleep 1
+${GUAKE} -e "ssh -AX saturn"
+sleep 1
+
+${GUAKE} -n ~
+sleep 1
+${GUAKE} -r "emulator"
+sleep 1
+${GUAKE} -e "ssh -AX 192.168.249.81"
 sleep 1
 
 exit 0
