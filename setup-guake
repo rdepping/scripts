@@ -1,0 +1,47 @@
+#!/bin/sh
+
+#guake &
+
+#guake -s 0
+#sleep 1
+#guake -r "~"
+#sleep 1
+
+cd
+
+guake -n git/cmf-tools
+sleep 1
+#guake -r "cmf/tools"
+#sleep 1
+guake -e "git status"
+sleep 1
+
+guake -n git/manifests
+sleep 1
+#guake -r "manifests"
+#sleep 1
+guake -e "git status"
+sleep 1
+
+guake -n Work/comcast/repo
+sleep 1
+#guake -r "repo"
+#sleep 1
+guake -e "git status"
+sleep 1
+
+guake -n ~
+sleep 1
+guake -r "saturn"
+sleep 1
+guake -e "ssh -AX saturn"
+sleep 1
+
+guake -n ~
+sleep 1
+guake -r "emulator"
+sleep 1
+guake -e "ssh -AX 192.168.249.81"
+sleep 1
+
+exit 0
