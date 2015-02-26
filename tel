@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-PHONELIST=~/PhoneBook.txt
-grep -i "$*" $PHONELIST | sort -u
-
