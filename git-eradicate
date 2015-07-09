@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Eradicate large files from Git history.
+# http://stackoverflow.com/questions/1029969/why-is-my-git-repository-so-big
+
+git filter-branch -f  --index-filter 'git rm --force --cached --ignore-unmatch $1' -- --all
+rm -Rf .git/refs/original && \
+    git reflog expire --expire=now --all && \
+    git gc --aggressive && \
+    git prune
