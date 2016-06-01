@@ -10,7 +10,7 @@ force=0
 while getopts "h?arf" opt; do
     case "$opt" in
     h|\?)
-        echo "usage: git-fix-author-email [-f|-r|-a] [refspec]"
+        echo "usage: git-fix-author-email [-f|-r|-a] old new [refspec]"
         exit 0
         ;;
     a)  all=1
@@ -26,8 +26,15 @@ shift $((OPTIND-1))
 
 [ "$1" = "--" ] && shift
 
-old="jim.lawton@gmail.com"
-new="jim.lawton@s3group.com"
+if [ -z "$1" -o -z "$2" ]; then
+    echo "usage: git-fix-author-email [-f|-r|-a] old new [refspec]"
+    exit 1
+fi
+
+old="$1"
+shift
+new="$1"
+shift
 
 args=""
 if [ $all -eq 1 ]; then
