@@ -15,4 +15,4 @@ else
     exit 1
 fi
 A="`echo | tr '\012' '\001'`"
-sed -e "s$A$pattern$A$replacement$A" $file
+sed -i -e "s$A$pattern$A$replacement$A" $file
