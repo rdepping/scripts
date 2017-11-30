@@ -1,6 +1,6 @@
-# Jim's Shell Scripts
+# Ralph's Shell Scripts
 
-These are a series of utility scripts for Bash, based on originals from Matthew McCullough, with some additions of mine. 
+These are a series of utility scripts for Bash, based on originals from Matthew McCullough (via Jim Lawton), with some additions of mine.
 
 As Matthew said in his original:
 "Many are derived from prior works of open source, but some original URLs have been lost. Please point out any original art URLs and they will be added. I always strive to give credit to prior art authors."
